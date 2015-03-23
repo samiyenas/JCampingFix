@@ -157,16 +157,7 @@
 
         }
 
-        private void btnDeleteCustomers_Click(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void btnAddCustomer_Click(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
+      
         #endregion
 
         private System.Windows.Forms.Button btnAddCustomer;
