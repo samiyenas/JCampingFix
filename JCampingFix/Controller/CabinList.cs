@@ -1,6 +1,6 @@
-﻿using JavaCamping.Model;
-using JavaCamping.Service;
-using JavaCamping.BinarySerialization;
+﻿using JCampingFix.Model;
+using JCampingFix.Service;
+using JCampingFix.BinarySerialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JavaCamping.Controller
+namespace JCampingFix.Controller
 {
     class CabinList
     {

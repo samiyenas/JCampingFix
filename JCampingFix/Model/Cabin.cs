@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JavaCamping.Model
+namespace JCampingFix.Model
 {
     [Serializable]
     class Cabin

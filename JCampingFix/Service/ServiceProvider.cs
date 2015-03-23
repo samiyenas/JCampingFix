@@ -1,11 +1,11 @@
-﻿using JavaCamping.Controller;
+﻿using JCampingFix.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JavaCamping.Service
+namespace JCampingFix.Service
 {
     class ServiceProvider
     {

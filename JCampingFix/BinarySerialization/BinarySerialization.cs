@@ -19,7 +19,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JavaCamping.BinarySerialization
+namespace JCampingFix.BinarySerialization
 {
     public class BinarySerialization<T>
     {
