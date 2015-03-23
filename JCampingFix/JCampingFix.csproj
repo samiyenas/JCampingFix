@@ -64,6 +64,18 @@
     <Compile Include="View\AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\BokaStuga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BokaStuga.Designer.cs">
+      <DependentUpon>BokaStuga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LedigaStugor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LedigaStugor.Designer.cs">
+      <DependentUpon>LedigaStugor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
