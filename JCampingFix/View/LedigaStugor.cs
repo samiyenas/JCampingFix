@@ -35,8 +35,9 @@ namespace JCampingFix.View
         //Skapar en ny ledig stuga, som är ledig
         private void btnLedigaStugor_Click(object sender, EventArgs e)
         {
-            Cabin newCabin = new Cabin(Convert.ToInt32(tbxID.Text), tbxStugNamn.Text, true);
+            Cabin newCabin = new Cabin(Convert.ToInt32(cabinlist.Count() + 1), tbxStugNamn.Text, true);
             cabinlist.Add(newCabin);
+            tbxStugNamn.Clear();
             updateListView();
 
         }
@@ -82,6 +83,22 @@ namespace JCampingFix.View
               ColumnHeaderAutoResizeStyle.HeaderSize);
             }
 
+        }
+
+        private void btnDeleteCabin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = lvwCabin.SelectedItems[0].Index;
+
+                cabinlist.RemoveAt(index);
+                updateListView();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error!");
+            }
         }
     }
 }

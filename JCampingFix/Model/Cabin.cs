@@ -35,12 +35,21 @@ namespace JCampingFix.Model
             set { cabinAvailable = value; }
         }
 
+        private DateTime cabinFreeFrom;
+
+        public DateTime CabinFreeFrom
+        {
+            get { return cabinFreeFrom; }
+            set { cabinFreeFrom = value; }
+        }
+
         //Samt en konstruktor
         public Cabin(int CabinID, string CabinName, bool CabinAvailable)
         {
             this.cabinID = CabinID;
             this.cabinName = CabinName;
             this.cabinAvailable = CabinAvailable;
+            this.cabinFreeFrom = CabinFreeFrom;
             
         }
     }

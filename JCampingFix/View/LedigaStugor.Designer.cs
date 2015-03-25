@@ -33,8 +33,7 @@
             this.tbxStugNamn = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.tbxID = new System.Windows.Forms.TextBox();
+            this.btnDeleteCabin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvwCabin
@@ -48,7 +47,7 @@
             // 
             // btnLedigaStugor
             // 
-            this.btnLedigaStugor.Location = new System.Drawing.Point(260, 167);
+            this.btnLedigaStugor.Location = new System.Drawing.Point(260, 97);
             this.btnLedigaStugor.Name = "btnLedigaStugor";
             this.btnLedigaStugor.Size = new System.Drawing.Size(100, 23);
             this.btnLedigaStugor.TabIndex = 1;
@@ -58,7 +57,7 @@
             // 
             // tbxStugNamn
             // 
-            this.tbxStugNamn.Location = new System.Drawing.Point(260, 120);
+            this.tbxStugNamn.Location = new System.Drawing.Point(260, 57);
             this.tbxStugNamn.Name = "tbxStugNamn";
             this.tbxStugNamn.Size = new System.Drawing.Size(100, 20);
             this.tbxStugNamn.TabIndex = 2;
@@ -75,35 +74,28 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(216, 123);
+            this.label2.Location = new System.Drawing.Point(216, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Namn:";
             // 
-            // lblID
+            // btnDeleteCabin
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(233, 84);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 13);
-            this.lblID.TabIndex = 6;
-            this.lblID.Text = "ID:";
-            // 
-            // tbxID
-            // 
-            this.tbxID.Location = new System.Drawing.Point(260, 81);
-            this.tbxID.Name = "tbxID";
-            this.tbxID.Size = new System.Drawing.Size(100, 20);
-            this.tbxID.TabIndex = 5;
+            this.btnDeleteCabin.Location = new System.Drawing.Point(260, 126);
+            this.btnDeleteCabin.Name = "btnDeleteCabin";
+            this.btnDeleteCabin.Size = new System.Drawing.Size(100, 23);
+            this.btnDeleteCabin.TabIndex = 5;
+            this.btnDeleteCabin.Text = "Ta bort Stuga";
+            this.btnDeleteCabin.UseVisualStyleBackColor = true;
+            this.btnDeleteCabin.Click += new System.EventHandler(this.btnDeleteCabin_Click);
             // 
             // LedigaStugor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 262);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.tbxID);
+            this.Controls.Add(this.btnDeleteCabin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxStugNamn);
@@ -125,8 +117,7 @@
         private System.Windows.Forms.TextBox tbxStugNamn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox tbxID;
+        private System.Windows.Forms.Button btnDeleteCabin;
 
     }
     

@@ -76,6 +76,12 @@ namespace JCampingFix.Controller
             return me;
         }
 
-        
+
+
+        internal void RemoveAt(int index)
+        {
+            cabins.RemoveAt(index);
+            
+        }
     }
 }

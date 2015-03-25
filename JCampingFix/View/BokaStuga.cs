@@ -18,7 +18,11 @@ namespace JCampingFix.View
         public BokaStuga()
         {
             InitializeComponent();
+            initListView();
+            lvwBokaKund.HideSelection = false;
+            lvwBokaStuga.HideSelection = false;
         }
+        
         private void initListView()
         {
             //Initializar listviewen för stugorna
@@ -80,6 +84,14 @@ namespace JCampingFix.View
             { lvwBokaKund.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize); }
 
 
+        }
+
+        private void btnBoka_Click(object sender, EventArgs e)
+        {
+            int index = lvwBokaStuga.SelectedItems[0].Index;
+            cabinList.Get(index).CabinAvailable = false;
+            cabinList.Get(index).CabinFreeFrom = dtpLeaving.Value;
+            updateListView();
         }
     }
 }

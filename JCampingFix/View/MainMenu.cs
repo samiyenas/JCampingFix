@@ -34,7 +34,7 @@ namespace JCampingFix.View
             {
                 if (File.Exists("MemberLista.DAT"))
                 {
-                    if (AskAQuestion("MemberLista.DAT File exist.\nAre You sure you want to replace it?"))
+                    if (AskAQuestion("MemberLista.DAT File exist.\nAre you sure you want to replace it?"))
                         ServiceProvider.GetCustomerService().BinarySerialize();
                 }
                 else
@@ -77,12 +77,12 @@ namespace JCampingFix.View
             {
                 if (File.Exists("CabinLista.DAT"))
                 {
-                    if (AskAQuestion("CabinLista.DAT File exist.\nAre You sure you want to replace it?"))
+                    if (AskAQuestion("CabinLista.DAT File exist.\nAre you sure you want to replace it?"))
                         ServiceProvider.GetCabinService().BinarySerialize();
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ServiceProvider.GetCabinService().BinarySerialize();
             }

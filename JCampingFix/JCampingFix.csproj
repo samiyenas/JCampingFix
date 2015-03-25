@@ -85,6 +85,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\BokaStuga.resx">
+      <DependentUpon>BokaStuga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LedigaStugor.resx">
+      <DependentUpon>LedigaStugor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
