@@ -1,4 +1,5 @@
 ﻿using System;
+using JCampingFix.View;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace JCampingFix
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+            Application.Run(new JCampingFix.View.MainMenu());
+            
         }
     }
 }
