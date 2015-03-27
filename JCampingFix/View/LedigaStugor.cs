@@ -14,7 +14,8 @@ using System.Windows.Forms;
 namespace JCampingFix.View
 {
     public partial class LedigaStugor : Form
-    {//Ser till att det inte krashar incase of tom list
+    {
+        //Ser till att det inte krashar incase of tom list
         CabinList cabinlist = new CabinList();
         public LedigaStugor()
         {
@@ -35,10 +36,14 @@ namespace JCampingFix.View
         //Skapar en ny ledig stuga, som är ledig
         private void btnLedigaStugor_Click(object sender, EventArgs e)
         {
-            Cabin newCabin = new Cabin(Convert.ToInt32(cabinlist.Count() + 1), tbxStugNamn.Text, true);
-            cabinlist.Add(newCabin);
-            tbxStugNamn.Clear();
-            updateListView();
+            if (tbxStugNamn.Text != "")
+            {
+                Cabin newCabin = new Cabin(Convert.ToInt32(cabinlist.Count() + 1), tbxStugNamn.Text, true);
+                cabinlist.Add(newCabin);
+                tbxStugNamn.Clear();
+                updateListView();
+            }
+            else MessageBox.Show("Fyll i rutan");
 
         }
         //Initializar Listviewen

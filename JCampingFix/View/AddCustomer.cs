@@ -33,9 +33,17 @@ namespace JCampingFix.View
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            if (tbxFörnamn.Text!= "" && tbxEfternamn.Text != "" && tbxAdress.Text != "" && tbxTelefonnummer.Text != "")
+            { 
             Customer newCustomer = new Customer(tbxFörnamn.Text, tbxEfternamn.Text, tbxAdress.Text, tbxTelefonnummer.Text);
             customerList.Add(newCustomer);
             updateListView();
+            }
+            else
+            {
+                MessageBox.Show("Fyll i alla rutorna!");
+            }
+           
 
         }
         private void initListView()
