@@ -37,17 +37,17 @@
             this.btnBoka = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxKund = new System.Windows.Forms.TextBox();
+            this.lvwBokningar = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lvwBokaKund
             // 
             this.lvwBokaKund.Location = new System.Drawing.Point(12, 43);
             this.lvwBokaKund.Name = "lvwBokaKund";
-            this.lvwBokaKund.Size = new System.Drawing.Size(273, 153);
+            this.lvwBokaKund.Size = new System.Drawing.Size(298, 153);
             this.lvwBokaKund.TabIndex = 0;
             this.lvwBokaKund.UseCompatibleStateImageBehavior = false;
             this.lvwBokaKund.View = System.Windows.Forms.View.Details;
-            
             // 
             // lvwBokaStuga
             // 
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(316, 123);
+            this.label3.Location = new System.Drawing.Point(335, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 7;
@@ -117,11 +117,21 @@
             this.tbxKund.Size = new System.Drawing.Size(639, 20);
             this.tbxKund.TabIndex = 8;
             // 
+            // lvwBokningar
+            // 
+            this.lvwBokningar.Location = new System.Drawing.Point(432, 290);
+            this.lvwBokningar.Name = "lvwBokningar";
+            this.lvwBokningar.Size = new System.Drawing.Size(444, 234);
+            this.lvwBokningar.TabIndex = 9;
+            this.lvwBokningar.UseCompatibleStateImageBehavior = false;
+            this.lvwBokningar.View = System.Windows.Forms.View.Details;
+            // 
             // BokaStuga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 404);
+            this.ClientSize = new System.Drawing.Size(938, 554);
+            this.Controls.Add(this.lvwBokningar);
             this.Controls.Add(this.tbxKund);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBoka);
@@ -149,6 +159,7 @@
         private System.Windows.Forms.Button btnBoka;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxKund;
+        private System.Windows.Forms.ListView lvwBokningar;
     
     }
 }

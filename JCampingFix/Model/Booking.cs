@@ -21,10 +21,19 @@ namespace JCampingFix.Model
         public int CustomerID { get { return customerID; } set { customerID = value; } }
 
         private DateTime arrivalDate;
-        public DateTime Arrivaldate { get { return arrivalDate; } set { arrivalDate = value; } }
+        public DateTime ArrivalDate { get { return arrivalDate; } set { arrivalDate = value; } }
 
         private DateTime departureDate;
         public DateTime DepartureDate { get { return departureDate; } set { departureDate = value; } }
+
+        public Booking(int BookingID, int CustomerID, int CabinID, DateTime ArrivalDate, DateTime DepartureDate )
+        {
+            this.bookingID = BookingID;
+            this.customerID = CustomerID;
+            this.cabinID = CabinID;
+            this.arrivalDate = ArrivalDate;
+            this.departureDate = DepartureDate;
+        }
 
 
 

@@ -17,20 +17,22 @@ namespace JCampingFix.View
     {
         CabinList cabinList;
         CustomerList customerList;
+        BookingList bookingList;
         public BokaStuga()
         {
-            
+
             InitializeComponent();
             cabinList = ServiceProvider.GetCabinService();
             customerList = ServiceProvider.GetCustomerService();
+            //bookingList = ServiceProvider.GetBookingService();
             initListView();
             lvwBokaKund.HideSelection = false;
             lvwBokaStuga.HideSelection = false;
         }
-        
+
         private void initListView()
         {
-            //Initializar listviewen för stugorna
+            //Initializar listviewen för stugorna, fixar alla kolumner
             lvwBokaStuga.FullRowSelect = true;
             lvwBokaStuga.GridLines = true;
             lvwBokaStuga.Columns.Add("ID", -2, HorizontalAlignment.Left);
@@ -38,7 +40,7 @@ namespace JCampingFix.View
             lvwBokaStuga.Columns.Add("Ledig", -2, HorizontalAlignment.Left);
             lvwBokaStuga.Columns.Add("Ledig från", -2, HorizontalAlignment.Left);
 
-            //Initializar listviewen för kunderna
+            //Initializar listviewen för kunderna, fixar alla kolumner
             lvwBokaKund.FullRowSelect = true;
             lvwBokaKund.GridLines = true;
             lvwBokaKund.Columns.Add("Förnamn", -2, HorizontalAlignment.Left);
@@ -46,12 +48,23 @@ namespace JCampingFix.View
             lvwBokaKund.Columns.Add("Adress ", -2, HorizontalAlignment.Left);
             lvwBokaKund.Columns.Add("Telefonnummer", -2, HorizontalAlignment.Left);
 
+            //Initializar listviewen för alla bokningar, fixar alla kolumner
+            lvwBokningar.FullRowSelect = true;
+            lvwBokningar.GridLines = true;
+            lvwBokningar.Columns.Add("BokningsID", -2, HorizontalAlignment.Left);
+            lvwBokningar.Columns.Add("Kundens Namn", -2, HorizontalAlignment.Left);
+            lvwBokningar.Columns.Add("Stugans namn", -2, HorizontalAlignment.Left);
+            lvwBokningar.Columns.Add("Arrival Date ", -2, HorizontalAlignment.Left);
+            lvwBokningar.Columns.Add("Departure Date", -2, HorizontalAlignment.Left);
+
             //Kallar på en update för att fylla i allt från listorna
-            updateListView();
+            updateCabinListView();
+            updateCustomerListView();
+            updateBookingListView();
 
         }
 
-        private void updateListView()
+        private void updateCabinListView()
         {
             //Gör en kopia av listviewen i LedigaStugor (Exakt samma kod, annat namn på lvwBokaStuga)
             lvwBokaStuga.Items.Clear();
@@ -72,7 +85,36 @@ namespace JCampingFix.View
 
             for (int i = 0; i < columnsStugor.Length; i++)
             { lvwBokaStuga.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize); }
+        }
 
+        private void updateBookingListView()
+        {
+            //ENABLA ALLT DETTA NÄR BOOKINGLISTEN EXISTERAR
+        //    //Gör en update till listviewen lvwBokningar
+        //    //lvwBokningar.Items.Clear();
+        //    string[] columnsBokningar = new string[5];
+        //    ListViewItem BokningsItem;
+
+        //    for (int i = 0; i < bookingList.Count(); i++)
+        //    {
+        //        columnsBokningar[0] = bookingList.Get(i).BookingID.ToString();
+        //        columnsBokningar[1] = bookingList.Get(i).CabinID.ToString();
+        //        columnsBokningar[2] = bookingList.Get(i).CustomerID.ToString();
+        //        columnsBokningar[3] = bookingList.Get(i).ArrivalDate.ToString();
+        //        columnsBokningar[4] = bookingList.Get(i).DepartureDate.ToString();
+
+        //        BokningsItem = new ListViewItem(columnsBokningar);
+        //        lvwBokningar.Items.Add(BokningsItem);
+        //    }
+
+        //    for (int i = 0; i < columnsBokningar.Length; i++)
+        //    {
+        //        lvwBokaStuga.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
+        //    }
+        }
+
+        private void updateCustomerListView()
+        {
             //Gör en kopia av listviewen i AddCustomer (Exakt samma kod, annat namn på lvwBokaKund)
 
             lvwBokaKund.Items.Clear();
@@ -89,24 +131,34 @@ namespace JCampingFix.View
             }
             for (int i = 0; i < columns.Length; i++)
             { lvwBokaKund.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize); }
+        }
 
-            
+
+        private void lvwBokaKund_SelectedIndexChanged_UsingItems(object sender, System.EventArgs e)
+        {
+            int customerSelectedIndex = lvwBokaKund.SelectedItems[0].Index;
+            tbxKund.Text = customerSelectedIndex.ToString();
         }
 
         private void btnBoka_Click(object sender, EventArgs e)
         {
             int index = lvwBokaStuga.SelectedItems[0].Index;
-            if (cabinList.Get(index).CabinAvailable == true) 
+            if (cabinList.Get(index).CabinAvailable == true)
             {
-                
+
                 cabinList.Get(index).CabinAvailable = false;
                 cabinList.Get(index).CabinFreeFrom = dtpLeaving.Value;
-                updateListView();
-                
-                
+                updateCabinListView();
+                updateCustomerListView();
+                updateBookingListView();
+                // Booking booking = new Booking((bookingList.Count() + 1).ToString(),  )
+
+
+
+
             }
-            
-            
+
+
         }
     }
 }
