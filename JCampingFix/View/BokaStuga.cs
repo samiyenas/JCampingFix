@@ -15,12 +15,14 @@ namespace JCampingFix.View
 {
     public partial class BokaStuga : Form
     {
-        CabinList cabinList = new CabinList();
-        CustomerList customerList = new CustomerList();
+        CabinList cabinList;
+        CustomerList customerList;
         public BokaStuga()
         {
             
             InitializeComponent();
+            cabinList = ServiceProvider.GetCabinService();
+            customerList = ServiceProvider.GetCustomerService();
             initListView();
             lvwBokaKund.HideSelection = false;
             lvwBokaStuga.HideSelection = false;
@@ -96,11 +98,12 @@ namespace JCampingFix.View
             int index = lvwBokaStuga.SelectedItems[0].Index;
             if (cabinList.Get(index).CabinAvailable == true) 
             {
-            
-            cabinList.Get(index).CabinAvailable = false;
-            cabinList.Get(index).CabinFreeFrom = dtpLeaving.Value;
-            updateListView();
-            tbxKund.Text = dtpLeaving.Value.ToString();
+                cabinList.ChangeDateTime(index, dtpLeaving.Value);
+                cabinList.Get(index).CabinAvailable = false;
+                cabinList.Get(index).CabinFreeFrom = dtpLeaving.Value;
+                updateListView();
+                tbxKund.Text = dtpLeaving.Value.ToString();
+                ServiceProvider.GetCabinService().BinarySerialize();
             }
             
             

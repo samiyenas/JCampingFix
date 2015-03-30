@@ -11,6 +11,7 @@ namespace JCampingFix.Service
     {
         static CustomerList _customerService;
         static CabinList _cabinService;
+        static BookingList _bookingService;
 
 
 
@@ -52,6 +53,27 @@ namespace JCampingFix.Service
             }
 
             return _cabinService;
+
+
+        }
+
+        public static BookingList GetBookingService()
+        {
+            if (_bookingService == null)
+            {
+                try
+                {
+                    _bookingService = new BookingList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+
+            return _bookingService;
 
 
         }

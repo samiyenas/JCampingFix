@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarySerialization\BinarySerialization.cs" />
+    <Compile Include="Controller\BookingList.cs" />
     <Compile Include="Controller\CabinList.cs" />
     <Compile Include="Controller\CustomerList.cs" />
+    <Compile Include="Model\Booking.cs" />
     <Compile Include="Model\Cabin.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Program.cs" />
