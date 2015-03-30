@@ -48,5 +48,43 @@ namespace JCampingFix.Controller
 
             return true;
         }
+
+
+        public void Add(Booking booking)
+        {
+            bookings.Add(booking);
+        }
+
+        public void Remove(Booking booking)
+        {
+            bookings.Remove(booking);
+        }
+
+        public int Count()
+        {
+            return bookings.Count();
+        }
+
+        public Booking Get(int index)
+        {
+            return bookings.ElementAt(index);
+        }
+
+        public Booking Find(string strFind)
+        {
+            var me = (from cabin in bookings
+                      where cabin.CabinID.ToString() == strFind
+                      select cabin).First();
+            return me;
+        }
+
+
+
+        internal void RemoveAt(int index)
+        {
+            bookings.RemoveAt(index);
+
+        }
+
     }
 }

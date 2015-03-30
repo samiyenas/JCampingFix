@@ -98,12 +98,12 @@ namespace JCampingFix.View
             int index = lvwBokaStuga.SelectedItems[0].Index;
             if (cabinList.Get(index).CabinAvailable == true) 
             {
-                cabinList.ChangeDateTime(index, dtpLeaving.Value);
+                
                 cabinList.Get(index).CabinAvailable = false;
                 cabinList.Get(index).CabinFreeFrom = dtpLeaving.Value;
                 updateListView();
-                tbxKund.Text = dtpLeaving.Value.ToString();
-                ServiceProvider.GetCabinService().BinarySerialize();
+                
+                
             }
             
             
