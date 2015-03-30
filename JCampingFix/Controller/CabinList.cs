@@ -39,6 +39,11 @@ namespace JCampingFix.Controller
             cabins.Add(cabin);
         }
 
+        public void ChangeDateTime(int index, DateTime dateTime)
+        {
+            cabins[index].CabinFreeFrom = dateTime;
+        }
+
         public void Remove(Cabin cabin)
         {
             cabins.Remove(cabin);

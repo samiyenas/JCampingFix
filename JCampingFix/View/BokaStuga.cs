@@ -1,4 +1,6 @@
 ﻿using JCampingFix.Controller;
+using JCampingFix.Service;
+using JCampingFix.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +19,7 @@ namespace JCampingFix.View
         CustomerList customerList = new CustomerList();
         public BokaStuga()
         {
+            
             InitializeComponent();
             initListView();
             lvwBokaKund.HideSelection = false;
@@ -31,6 +34,7 @@ namespace JCampingFix.View
             lvwBokaStuga.Columns.Add("ID", -2, HorizontalAlignment.Left);
             lvwBokaStuga.Columns.Add("Stugnamn", -2, HorizontalAlignment.Left);
             lvwBokaStuga.Columns.Add("Ledig", -2, HorizontalAlignment.Left);
+            lvwBokaStuga.Columns.Add("Ledig från", -2, HorizontalAlignment.Left);
 
             //Initializar listviewen för kunderna
             lvwBokaKund.FullRowSelect = true;
@@ -49,7 +53,7 @@ namespace JCampingFix.View
         {
             //Gör en kopia av listviewen i LedigaStugor (Exakt samma kod, annat namn på lvwBokaStuga)
             lvwBokaStuga.Items.Clear();
-            string[] columnsStugor = new string[3];
+            string[] columnsStugor = new string[4];
             ListViewItem StugItem;
             for (int i = 0; i < cabinList.Count(); i++)
             {
@@ -59,6 +63,7 @@ namespace JCampingFix.View
                 if (cabinList.Get(i).CabinAvailable == true) columnsStugor[2] = "Ledig";
                 else columnsStugor[2] = "Ej ledig";
 
+                columnsStugor[3] = cabinList.Get(i).CabinFreeFrom.ToString();
                 StugItem = new ListViewItem(columnsStugor);
                 lvwBokaStuga.Items.Add(StugItem);
             }
@@ -83,15 +88,22 @@ namespace JCampingFix.View
             for (int i = 0; i < columns.Length; i++)
             { lvwBokaKund.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize); }
 
-
+            
         }
 
         private void btnBoka_Click(object sender, EventArgs e)
         {
             int index = lvwBokaStuga.SelectedItems[0].Index;
+            if (cabinList.Get(index).CabinAvailable == true) 
+            {
+            
             cabinList.Get(index).CabinAvailable = false;
             cabinList.Get(index).CabinFreeFrom = dtpLeaving.Value;
             updateListView();
+            tbxKund.Text = dtpLeaving.Value.ToString();
+            }
+            
+            
         }
     }
 }
