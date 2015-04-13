@@ -35,9 +35,15 @@ namespace JCampingFix.View
         {
             if (tbxFörnamn.Text!= "" && tbxEfternamn.Text != "" && tbxAdress.Text != "" && tbxTelefonnummer.Text != "")
             { 
-            Customer newCustomer = new Customer(tbxFörnamn.Text, tbxEfternamn.Text, tbxAdress.Text, tbxTelefonnummer.Text);
+            Customer newCustomer = new Customer((customerList.Count() + 1), tbxFörnamn.Text, tbxEfternamn.Text, tbxAdress.Text, tbxTelefonnummer.Text);
             customerList.Add(newCustomer);
             updateListView();
+            tbxAdress.Clear();
+            tbxEfternamn.Clear();
+            tbxFörnamn.Clear();
+            tbxTelefonnummer.Clear();
+            tbxFörnamn.Focus();
+
             }
             else
             {
@@ -52,6 +58,7 @@ namespace JCampingFix.View
             lvwCustomer.FullRowSelect = true;
             lvwCustomer.GridLines = true;
             // Add Columns
+            lvwCustomer.Columns.Add("ID", -2, HorizontalAlignment.Left);
             lvwCustomer.Columns.Add("Förnamn", -2, HorizontalAlignment.Left);
             lvwCustomer.Columns.Add("Efternamn", -2, HorizontalAlignment.Left);
             lvwCustomer.Columns.Add("Adress ", -2, HorizontalAlignment.Left);
@@ -65,14 +72,15 @@ namespace JCampingFix.View
         private void updateListView()
         {
             lvwCustomer.Items.Clear();
-            string[] columns = new string[4];
+            string[] columns = new string[5];
             ListViewItem item;
             for (int i = 0; i < customerList.Count(); i++)
             {
-                columns[0] = customerList.Get(i).Förnamn;
-                columns[1] = customerList.Get(i).Efternamn;
-                columns[2] = customerList.Get(i).Adress;
-                columns[3] = customerList.Get(i).Telefonnummer;
+                columns[0] = customerList.Get(i).CustomerID.ToString();
+                columns[1] = customerList.Get(i).Förnamn;
+                columns[2] = customerList.Get(i).Efternamn;
+                columns[3] = customerList.Get(i).Adress;
+                columns[4] = customerList.Get(i).Telefonnummer;
                 item = new ListViewItem(columns);
                 lvwCustomer.Items.Add(item);
             }

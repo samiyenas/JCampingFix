@@ -55,9 +55,9 @@ namespace JCampingFix.Model
        
         
 
-        public Customer(string Förnamn, string Efternamn, string Adress, string Telefonnummer)
+        public Customer(int CustomerID, string Förnamn, string Efternamn, string Adress, string Telefonnummer)
         {
-            // TODO: Complete member initialization
+            this.customerID = CustomerID;
             this.förnamn = Förnamn;
             this.efternamn = Efternamn;
             this.adress = Adress;

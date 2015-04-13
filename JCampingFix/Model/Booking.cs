@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace JCampingFix.Model
 {
+    [Serializable]
     class Booking
     {
 
