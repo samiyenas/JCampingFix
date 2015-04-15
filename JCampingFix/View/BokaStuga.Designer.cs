@@ -36,8 +36,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnBoka = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbxKund = new System.Windows.Forms.TextBox();
             this.lvwBokningar = new System.Windows.Forms.ListView();
+            this.btnLedig = new System.Windows.Forms.Button();
+            this.btnDeleteBooking = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvwBokaKund
@@ -51,7 +52,7 @@
             // 
             // lvwBokaStuga
             // 
-            this.lvwBokaStuga.Location = new System.Drawing.Point(402, 43);
+            this.lvwBokaStuga.Location = new System.Drawing.Point(540, 43);
             this.lvwBokaStuga.Name = "lvwBokaStuga";
             this.lvwBokaStuga.Size = new System.Drawing.Size(306, 153);
             this.lvwBokaStuga.TabIndex = 1;
@@ -60,14 +61,14 @@
             // 
             // dtpArriving
             // 
-            this.dtpArriving.Location = new System.Drawing.Point(56, 252);
+            this.dtpArriving.Location = new System.Drawing.Point(58, 293);
             this.dtpArriving.Name = "dtpArriving";
             this.dtpArriving.Size = new System.Drawing.Size(200, 20);
             this.dtpArriving.TabIndex = 2;
             // 
             // dtpLeaving
             // 
-            this.dtpLeaving.Location = new System.Drawing.Point(56, 278);
+            this.dtpLeaving.Location = new System.Drawing.Point(58, 319);
             this.dtpLeaving.Name = "dtpLeaving";
             this.dtpLeaving.Size = new System.Drawing.Size(200, 20);
             this.dtpLeaving.TabIndex = 3;
@@ -75,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 252);
+            this.label1.Location = new System.Drawing.Point(21, 293);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 4;
@@ -84,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 278);
+            this.label2.Location = new System.Drawing.Point(24, 319);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 13);
             this.label2.TabIndex = 5;
@@ -109,30 +110,43 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "I stuga:";
             // 
-            // tbxKund
-            // 
-            this.tbxKund.Enabled = false;
-            this.tbxKund.Location = new System.Drawing.Point(12, 202);
-            this.tbxKund.Name = "tbxKund";
-            this.tbxKund.Size = new System.Drawing.Size(639, 20);
-            this.tbxKund.TabIndex = 8;
-            // 
             // lvwBokningar
             // 
             this.lvwBokningar.Location = new System.Drawing.Point(432, 290);
             this.lvwBokningar.Name = "lvwBokningar";
-            this.lvwBokningar.Size = new System.Drawing.Size(444, 234);
+            this.lvwBokningar.Size = new System.Drawing.Size(564, 234);
             this.lvwBokningar.TabIndex = 9;
             this.lvwBokningar.UseCompatibleStateImageBehavior = false;
             this.lvwBokningar.View = System.Windows.Forms.View.Details;
+            // 
+            // btnLedig
+            // 
+            this.btnLedig.Location = new System.Drawing.Point(908, 55);
+            this.btnLedig.Name = "btnLedig";
+            this.btnLedig.Size = new System.Drawing.Size(75, 23);
+            this.btnLedig.TabIndex = 10;
+            this.btnLedig.Text = "Ledig";
+            this.btnLedig.UseVisualStyleBackColor = true;
+            this.btnLedig.Click += new System.EventHandler(this.btnLedig_Click);
+            // 
+            // btnDeleteBooking
+            // 
+            this.btnDeleteBooking.Location = new System.Drawing.Point(273, 489);
+            this.btnDeleteBooking.Name = "btnDeleteBooking";
+            this.btnDeleteBooking.Size = new System.Drawing.Size(119, 23);
+            this.btnDeleteBooking.TabIndex = 11;
+            this.btnDeleteBooking.Text = "Ta bort bokning";
+            this.btnDeleteBooking.UseVisualStyleBackColor = true;
+            this.btnDeleteBooking.Click += new System.EventHandler(this.btnDeleteBooking_Click);
             // 
             // BokaStuga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 554);
+            this.ClientSize = new System.Drawing.Size(1034, 554);
+            this.Controls.Add(this.btnDeleteBooking);
+            this.Controls.Add(this.btnLedig);
             this.Controls.Add(this.lvwBokningar);
-            this.Controls.Add(this.tbxKund);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBoka);
             this.Controls.Add(this.label2);
@@ -158,8 +172,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBoka;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxKund;
         private System.Windows.Forms.ListView lvwBokningar;
+        private System.Windows.Forms.Button btnLedig;
+        private System.Windows.Forms.Button btnDeleteBooking;
     
     }
 }

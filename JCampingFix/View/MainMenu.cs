@@ -95,6 +95,34 @@ namespace JCampingFix.View
             f.Show();
         }
 
+        private void saveToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (File.Exists("BookingLista.DAT"))
+                {
+                    if (AskAQuestion("BookingLista.DAT File exist.\nAre you sure you want to replace it?"))
+                        ServiceProvider.GetBookingService().BinarySerialize();
+                        ServiceProvider.GetCabinService().BinarySerialize();
+                        ServiceProvider.GetCustomerService().BinarySerialize();
+                }
+
+            }
+            catch (Exception)
+            {
+                ServiceProvider.GetBookingService().BinarySerialize();
+            }
+        }
+
+       
+
+        private void bokningarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ekonomi f = new Ekonomi();
+            f.Show();
+        }
+
 
     }
 }

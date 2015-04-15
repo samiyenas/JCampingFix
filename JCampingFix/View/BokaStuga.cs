@@ -22,8 +22,24 @@ namespace JCampingFix.View
         {
 
             InitializeComponent();
-            cabinList = ServiceProvider.GetCabinService();
-            customerList = ServiceProvider.GetCustomerService();
+            try
+            {
+                cabinList = ServiceProvider.GetCabinService();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                customerList = ServiceProvider.GetCustomerService();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             try
             {
                 bookingList = ServiceProvider.GetBookingService();
@@ -33,8 +49,7 @@ namespace JCampingFix.View
 
                 MessageBox.Show(ex.Message);
             }
-            
-            //bookingList.Add(new Booking(1, 1, 1, dtpArriving.Value, dtpLeaving.Value));
+
             initListView();
             lvwBokaKund.HideSelection = false;
             lvwBokaStuga.HideSelection = false;
@@ -68,6 +83,7 @@ namespace JCampingFix.View
             lvwBokningar.Columns.Add("Stugans namn", -2, HorizontalAlignment.Left);
             lvwBokningar.Columns.Add("Arrival Date ", -2, HorizontalAlignment.Left);
             lvwBokningar.Columns.Add("Departure Date", -2, HorizontalAlignment.Left);
+            lvwBokningar.Columns.Add("Betald", -2, HorizontalAlignment.Left);
 
             //Kallar på en update för att fylla i allt från listorna
             updateCabinListView();
@@ -103,25 +119,30 @@ namespace JCampingFix.View
         {
             //Gör en update till listviewen lvwBokningar
             lvwBokningar.Items.Clear();
-            string[] columnsBokningar = new string[5];
+            string[] columnsBokningar = new string[6];
             ListViewItem BokningsItem;
 
             for (int i = 0; i < bookingList.Count(); i++)
             {
+                //BokningsID
                 columnsBokningar[0] = bookingList.Get(i).BookingID.ToString();
-                columnsBokningar[1] = bookingList.Get(i).CabinID.ToString();
-                columnsBokningar[2] = bookingList.Get(i).CustomerID.ToString();
+
+                //För och efternamn på kunden hämtas via ett ID hämtat från bokningslistan. Måste vara -1 pga array börjar på 0 medans ID börjar på 1
+                columnsBokningar[1] = customerList.Get(bookingList.Get(i).CustomerID - 1).Förnamn + " " + customerList.Get(bookingList.Get(i).CustomerID - 1).Efternamn;
+                
+                //Namn på stugan hämtas via ett id hämtat från bokningslistan. Måste vara -1 pga array börjar på 0
+                columnsBokningar[2] = cabinList.Get(bookingList.Get(i).CabinID - 1).CabinName;
+
+
                 columnsBokningar[3] = bookingList.Get(i).ArrivalDate.ToString();
                 columnsBokningar[4] = bookingList.Get(i).DepartureDate.ToString();
+                columnsBokningar[5] = bookingList.Get(i).Paid.ToString();
 
                 BokningsItem = new ListViewItem(columnsBokningar);
                 lvwBokningar.Items.Add(BokningsItem);
             }
 
-            for (int i = 0; i < columnsBokningar.Length - 1; i++)
-            {
-                lvwBokaStuga.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
-            }
+          
         }
 
         private void updateCustomerListView()
@@ -149,7 +170,6 @@ namespace JCampingFix.View
         private void lvwBokaKund_SelectedIndexChanged_UsingItems(object sender, System.EventArgs e)
         {
             int customerSelectedIndex = lvwBokaKund.SelectedItems[0].Index;
-            tbxKund.Text = customerSelectedIndex.ToString();
         }
 
         private void btnBoka_Click(object sender, EventArgs e)
@@ -167,11 +187,11 @@ namespace JCampingFix.View
                     cabinList.Get(cabinIndex).CabinFreeFrom = dtpLeaving.Value;
 
                     //Hämtar information för bokningen från cabinList och customerlist 
-                    //genom att kolla på den valda raden.
+                    //genom att kolla på den valda raden. Bokningen är automatiskt inte betald.
                     int customerID = customerList.Get(customerIndex).CustomerID;
                     int cabinID = cabinList.Get(cabinIndex).CabinID;
-                    //int bookingID = bookingList.Count() + 1;
-                    Booking booking = new Booking(1, customerID, cabinID, dtpArriving.Value, dtpLeaving.Value);
+                    int bookingID = bookingList.Count() + 1;
+                    Booking booking = new Booking(bookingID, customerID, cabinID, dtpArriving.Value, dtpLeaving.Value, false);
                     bookingList.Add(booking);
                     updateBookingListView();
                     updateCabinListView();
@@ -184,14 +204,29 @@ namespace JCampingFix.View
                     MessageBox.Show("Stugan är ej ledig");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                MessageBox.Show(ex.Message);
                 MessageBox.Show("Välj en kund och en stuga");
+                updateCabinListView();
             }
-           
 
 
+
+        }
+
+        private void btnLedig_Click(object sender, EventArgs e)
+        {
+            int cabinIndex = lvwBokaStuga.SelectedItems[0].Index;
+            cabinList.Get(cabinIndex).CabinAvailable = true;
+            updateCabinListView();
+        }
+
+        private void btnDeleteBooking_Click(object sender, EventArgs e)
+        {
+            int i = lvwBokningar.SelectedItems[0].Index;
+            bookingList.RemoveAt(i);
+            updateBookingListView();
         }
     }
 }

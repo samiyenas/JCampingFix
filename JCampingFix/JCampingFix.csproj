@@ -66,6 +66,12 @@
     <Compile Include="View\BokaStuga.Designer.cs">
       <DependentUpon>BokaStuga.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Ekonomi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ekonomi.Designer.cs">
+      <DependentUpon>Ekonomi.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LedigaStugor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,12 +96,16 @@
     <EmbeddedResource Include="View\BokaStuga.resx">
       <DependentUpon>BokaStuga.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Ekonomi.resx">
+      <DependentUpon>Ekonomi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LedigaStugor.resx">
       <DependentUpon>LedigaStugor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\BookingLista.DAT" />
     <None Include="bin\Debug\CabinLista.DAT" />
     <None Include="bin\Debug\MemberLista.DAT" />
     <None Include="Properties\Settings.settings">

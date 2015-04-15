@@ -37,6 +37,9 @@
             this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bokaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bokaEnStugaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ekonomiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bokningarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +48,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kundToolStripMenuItem,
             this.stugorToolStripMenuItem,
-            this.bokaToolStripMenuItem});
+            this.bokaToolStripMenuItem,
+            this.ekonomiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(284, 24);
@@ -64,14 +68,14 @@
             // läggTillKundToolStripMenuItem
             // 
             this.läggTillKundToolStripMenuItem.Name = "läggTillKundToolStripMenuItem";
-            this.läggTillKundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.läggTillKundToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.läggTillKundToolStripMenuItem.Text = "Lägg till Kund";
             this.läggTillKundToolStripMenuItem.Click += new System.EventHandler(this.läggTillKundToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -87,21 +91,22 @@
             // ledigaStugorToolStripMenuItem
             // 
             this.ledigaStugorToolStripMenuItem.Name = "ledigaStugorToolStripMenuItem";
-            this.ledigaStugorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ledigaStugorToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.ledigaStugorToolStripMenuItem.Text = "Lediga Stugor";
             this.ledigaStugorToolStripMenuItem.Click += new System.EventHandler(this.ledigaStugorToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem1
             // 
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.saveToolStripMenuItem1.Text = "Save";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // bokaToolStripMenuItem
             // 
             this.bokaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bokaEnStugaToolStripMenuItem});
+            this.bokaEnStugaToolStripMenuItem,
+            this.saveToolStripMenuItem2});
             this.bokaToolStripMenuItem.Name = "bokaToolStripMenuItem";
             this.bokaToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.bokaToolStripMenuItem.Text = "Boka";
@@ -109,9 +114,31 @@
             // bokaEnStugaToolStripMenuItem
             // 
             this.bokaEnStugaToolStripMenuItem.Name = "bokaEnStugaToolStripMenuItem";
-            this.bokaEnStugaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bokaEnStugaToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.bokaEnStugaToolStripMenuItem.Text = "Boka en stuga";
             this.bokaEnStugaToolStripMenuItem.Click += new System.EventHandler(this.bokaEnStugaToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem2
+            // 
+            this.saveToolStripMenuItem2.Name = "saveToolStripMenuItem2";
+            this.saveToolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
+            this.saveToolStripMenuItem2.Text = "Save";
+            this.saveToolStripMenuItem2.Click += new System.EventHandler(this.saveToolStripMenuItem2_Click);
+            // 
+            // ekonomiToolStripMenuItem
+            // 
+            this.ekonomiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bokningarToolStripMenuItem});
+            this.ekonomiToolStripMenuItem.Name = "ekonomiToolStripMenuItem";
+            this.ekonomiToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.ekonomiToolStripMenuItem.Text = "Ekonomi";
+            // 
+            // bokningarToolStripMenuItem
+            // 
+            this.bokningarToolStripMenuItem.Name = "bokningarToolStripMenuItem";
+            this.bokningarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bokningarToolStripMenuItem.Text = "Bokningar";
+            this.bokningarToolStripMenuItem.Click += new System.EventHandler(this.bokningarToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -140,5 +167,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem bokaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bokaEnStugaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem ekonomiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bokningarToolStripMenuItem;
     }
 }
