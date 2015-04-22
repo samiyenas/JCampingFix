@@ -129,10 +129,16 @@ namespace JCampingFix.View
 
                 //För och efternamn på kunden hämtas via ett ID hämtat från bokningslistan. Måste vara -1 pga array börjar på 0 medans ID börjar på 1
                 columnsBokningar[1] = customerList.Get(bookingList.Get(i).CustomerID - 1).Förnamn + " " + customerList.Get(bookingList.Get(i).CustomerID - 1).Efternamn;
-                
-                //Namn på stugan hämtas via ett id hämtat från bokningslistan. Måste vara -1 pga array börjar på 0
-                columnsBokningar[2] = cabinList.Get(bookingList.Get(i).CabinID - 1).CabinName;
 
+                //Namn på stugan hämtas via ett id hämtat från bokningslistan om inte en husvagn används. ID 1000 används för att identifiera husvagnar.
+                if (bookingList.Get(i).CabinID == 1000)
+                {
+                    columnsBokningar[2] = "Husvagn";
+                }
+                else
+                {
+                    columnsBokningar[2] = cabinList.Get(bookingList.Get(i).CabinID - 1).CabinName;
+                }
 
                 columnsBokningar[3] = bookingList.Get(i).ArrivalDate.ToString();
                 columnsBokningar[4] = bookingList.Get(i).DepartureDate.ToString();
@@ -142,7 +148,8 @@ namespace JCampingFix.View
                 lvwBokningar.Items.Add(BokningsItem);
             }
 
-          
+            for (int i = 0; i < columnsBokningar.Length; i++)
+            { lvwBokningar.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize); }
         }
 
         private void updateCustomerListView()
@@ -191,8 +198,20 @@ namespace JCampingFix.View
                     int customerID = customerList.Get(customerIndex).CustomerID;
                     int cabinID = cabinList.Get(cabinIndex).CabinID;
                     int bookingID = bookingList.Count() + 1;
-                    Booking booking = new Booking(bookingID, customerID, cabinID, dtpArriving.Value, dtpLeaving.Value, false);
-                    bookingList.Add(booking);
+
+                    //Kolla om husvagn ska användas
+                    //om den ska användas, använd värdet 1000 för att visa i listviewen att det är en husvagn
+                    if (cbxHusvagn.Checked == true)
+                    {
+                        Booking booking = new Booking(bookingID, customerID, 1000, dtpArriving.Value, dtpLeaving.Value, false);
+                        bookingList.Add(booking);
+                    }
+                    else
+                    {
+                        Booking booking = new Booking(bookingID, customerID, cabinID, dtpArriving.Value, dtpLeaving.Value, false);
+                        bookingList.Add(booking);
+                    }
+                    
                     updateBookingListView();
                     updateCabinListView();
                     updateCustomerListView();

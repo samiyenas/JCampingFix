@@ -39,6 +39,7 @@
             this.lvwBokningar = new System.Windows.Forms.ListView();
             this.btnLedig = new System.Windows.Forms.Button();
             this.btnDeleteBooking = new System.Windows.Forms.Button();
+            this.cbxHusvagn = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lvwBokaKund
@@ -52,7 +53,7 @@
             // 
             // lvwBokaStuga
             // 
-            this.lvwBokaStuga.Location = new System.Drawing.Point(540, 43);
+            this.lvwBokaStuga.Location = new System.Drawing.Point(496, 43);
             this.lvwBokaStuga.Name = "lvwBokaStuga";
             this.lvwBokaStuga.Size = new System.Drawing.Size(306, 153);
             this.lvwBokaStuga.TabIndex = 1;
@@ -139,11 +140,22 @@
             this.btnDeleteBooking.UseVisualStyleBackColor = true;
             this.btnDeleteBooking.Click += new System.EventHandler(this.btnDeleteBooking_Click);
             // 
+            // cbxHusvagn
+            // 
+            this.cbxHusvagn.AutoSize = true;
+            this.cbxHusvagn.Location = new System.Drawing.Point(496, 214);
+            this.cbxHusvagn.Name = "cbxHusvagn";
+            this.cbxHusvagn.Size = new System.Drawing.Size(114, 17);
+            this.cbxHusvagn.TabIndex = 13;
+            this.cbxHusvagn.Text = "Husvagn Används";
+            this.cbxHusvagn.UseVisualStyleBackColor = true;
+            // 
             // BokaStuga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 554);
+            this.Controls.Add(this.cbxHusvagn);
             this.Controls.Add(this.btnDeleteBooking);
             this.Controls.Add(this.btnLedig);
             this.Controls.Add(this.lvwBokningar);
@@ -175,6 +187,7 @@
         private System.Windows.Forms.ListView lvwBokningar;
         private System.Windows.Forms.Button btnLedig;
         private System.Windows.Forms.Button btnDeleteBooking;
+        private System.Windows.Forms.CheckBox cbxHusvagn;
     
     }
 }
