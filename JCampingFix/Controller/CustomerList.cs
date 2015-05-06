@@ -75,11 +75,7 @@ namespace JCampingFix.Controller
                       select customer).First();
             return me;
         }
-    //    public int Count()
-    //    {
-    //        return myMovie.Count();
-    //    }
-
+   
        
     }
 }

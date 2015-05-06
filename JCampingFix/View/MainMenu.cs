@@ -123,6 +123,26 @@ namespace JCampingFix.View
             f.Show();
         }
 
+        private void saveToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists("PriceLista.DAT"))
+                {
+                    if (AskAQuestion("PriceLista.DAT File exist.\nAre you sure you want to replace it?"))
+                        ServiceProvider.GetBookingService().BinarySerialize();
+                    ServiceProvider.GetCabinService().BinarySerialize();
+                    ServiceProvider.GetCustomerService().BinarySerialize();
+                    ServiceProvider.GetPriceService().BinarySerialize();
+                }
+
+            }
+            catch (Exception)
+            {
+                ServiceProvider.GetPriceService().BinarySerialize();
+            }
+        }
+
 
     }
 }

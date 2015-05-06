@@ -40,6 +40,7 @@
             this.saveToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ekonomiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bokningarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,7 +129,8 @@
             // ekonomiToolStripMenuItem
             // 
             this.ekonomiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bokningarToolStripMenuItem});
+            this.bokningarToolStripMenuItem,
+            this.saveToolStripMenuItem3});
             this.ekonomiToolStripMenuItem.Name = "ekonomiToolStripMenuItem";
             this.ekonomiToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.ekonomiToolStripMenuItem.Text = "Ekonomi";
@@ -139,6 +141,13 @@
             this.bokningarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bokningarToolStripMenuItem.Text = "Bokningar";
             this.bokningarToolStripMenuItem.Click += new System.EventHandler(this.bokningarToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem3
+            // 
+            this.saveToolStripMenuItem3.Name = "saveToolStripMenuItem3";
+            this.saveToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem3.Text = "Save";
+            this.saveToolStripMenuItem3.Click += new System.EventHandler(this.saveToolStripMenuItem3_Click);
             // 
             // MainMenu
             // 
@@ -170,5 +179,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem ekonomiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bokningarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem3;
     }
 }

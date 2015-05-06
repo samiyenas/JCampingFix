@@ -19,7 +19,7 @@ namespace JCampingFix.View
         BookingList bookingList;
         CustomerList customerList;
         CabinList cabinList;
-
+        PriceList priceList;
         public Ekonomi()
         {
             InitializeComponent();
@@ -54,6 +54,10 @@ namespace JCampingFix.View
             {
                 MessageBox.Show(ex.Message);
             }
+
+            //tbxHusvagnPris.Text = priceList.Get(1).ToString();
+            //tbxStugpris.Text = priceList.Get(2).ToString();
+            //tbxKWHpris.Text = priceList.Get(3).ToString();
 
             initListView();
         }
@@ -112,30 +116,54 @@ namespace JCampingFix.View
         {
             int index = lvwBokningar.SelectedItems[0].Index;
 
-            Random random = new Random();
-            int kwh = random.Next(2000, 4000);
 
 
+            int kwh = 0;
             DateTime depDate = bookingList.Get(index).DepartureDate.Date;
             DateTime arrDate = bookingList.Get(index).ArrivalDate.Date;
             TimeSpan tot = depDate - arrDate;
-            lblTime.Text = kwh.ToString();
+            lblHusvagn.Text = kwh.ToString();
             uint hej = (((uint)tot.TotalDays + 1) * 4);
-            lblPengar.Text = hej.ToString();
+            lblKWH.Text = hej.ToString();
 
+            //Om cabinID = 1000 så har en husvagn använts
             if (bookingList.Get(index).CabinID == 1000)
             {
                 int totPris = (((int)tot.TotalDays + 1) * 4) + (kwh * 5);
-                lblPengar.Text = totPris.ToString();
+                lblKWH.Text = totPris.ToString();
             }
             else
             {
                 int totPris = (((int)tot.TotalDays + 1) * 10) + (kwh * 5);
-                lblPengar.Text = totPris.ToString() + " Varav för dagar:" + ((tot.TotalDays + 1) * 10).ToString() + " Varav för elektricitet:" + (kwh * 5).ToString();
+                lblKWH.Text = totPris.ToString() + " Varav för dagar:" + ((tot.TotalDays + 1) * 10).ToString() + " Varav för elektricitet:" + (kwh * 5).ToString();
             }
 
         }
 
+        private void btnPris_Click(object sender, EventArgs e)
+        {
+            int index = lvwBokningar.SelectedItems[0].Index;
+
+            //Räknar ut hur länge som kunden stannat
+            DateTime depDate = bookingList.Get(index).DepartureDate.Date;
+            DateTime arrDate = bookingList.Get(index).ArrivalDate.Date;
+            TimeSpan tot = depDate - arrDate;
+            //Genom att casta till int så får vi i hela dagar, samt räknar ej med startdagen så måste addera ett.
+            int hej = (((int)tot.TotalDays + 1) * 4);
+        }
+
+        private int kwhGenerator()
+        {
+            Random random = new Random();
+            return random.Next(2000, 4000);
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            priceList.Get(1).TrailerPrice = Convert.ToInt32(tbxHusvagnPris.Text);
+            priceList.Get(1).CabinPrice = Convert.ToInt32(tbxStugpris.Text);
+            priceList.Get(1).KwhPrice = Convert.ToInt32(tbxKWHpris.Text);
+        }
 
     }
 }

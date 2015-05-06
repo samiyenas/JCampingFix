@@ -48,9 +48,11 @@
     <Compile Include="Controller\BookingList.cs" />
     <Compile Include="Controller\CabinList.cs" />
     <Compile Include="Controller\CustomerList.cs" />
+    <Compile Include="Controller\PriceList.cs" />
     <Compile Include="Model\Booking.cs" />
     <Compile Include="Model\Cabin.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Prices.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ServiceProvider.cs" />

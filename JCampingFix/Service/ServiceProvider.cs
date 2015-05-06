@@ -12,6 +12,7 @@ namespace JCampingFix.Service
         static CustomerList _customerService;
         static CabinList _cabinService;
         static BookingList _bookingService;
+        static PriceList _priceService;
 
 
 
@@ -75,6 +76,25 @@ namespace JCampingFix.Service
 
             return _bookingService;
 
+        }
+
+        public static PriceList GetPriceService()
+        {
+            if (_priceService == null)
+            {
+                try
+                {
+                    _priceService = new PriceList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+
+            return _priceService;
 
         }
     }

@@ -35,6 +35,7 @@ namespace JCampingFix.Model
             set { cabinAvailable = value; }
         }
 
+        //När stugan blir ledig, get set
         private DateTime cabinFreeFrom;
 
         public DateTime CabinFreeFrom

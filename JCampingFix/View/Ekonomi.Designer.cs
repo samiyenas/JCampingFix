@@ -33,15 +33,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnBetala = new System.Windows.Forms.Button();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblPengar = new System.Windows.Forms.Label();
+            this.lblHusvagn = new System.Windows.Forms.Label();
+            this.lblKWH = new System.Windows.Forms.Label();
+            this.btnPris = new System.Windows.Forms.Button();
+            this.tbxPris = new System.Windows.Forms.TextBox();
+            this.tbxStugpris = new System.Windows.Forms.TextBox();
+            this.tbxHusvagnPris = new System.Windows.Forms.TextBox();
+            this.tbxKWHpris = new System.Windows.Forms.TextBox();
+            this.lblStuga = new System.Windows.Forms.Label();
+            this.btnApply = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvwBokningar
             // 
             this.lvwBokningar.Location = new System.Drawing.Point(12, 27);
             this.lvwBokningar.Name = "lvwBokningar";
-            this.lvwBokningar.Size = new System.Drawing.Size(456, 241);
+            this.lvwBokningar.Size = new System.Drawing.Size(492, 241);
             this.lvwBokningar.TabIndex = 0;
             this.lvwBokningar.UseCompatibleStateImageBehavior = false;
             this.lvwBokningar.View = System.Windows.Forms.View.Details;
@@ -66,7 +73,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(675, 28);
+            this.textBox1.Location = new System.Drawing.Point(580, 158);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(177, 85);
@@ -75,7 +82,7 @@
             // 
             // btnBetala
             // 
-            this.btnBetala.Location = new System.Drawing.Point(12, 274);
+            this.btnBetala.Location = new System.Drawing.Point(12, 314);
             this.btnBetala.Name = "btnBetala";
             this.btnBetala.Size = new System.Drawing.Size(116, 23);
             this.btnBetala.TabIndex = 4;
@@ -83,31 +90,95 @@
             this.btnBetala.UseVisualStyleBackColor = true;
             this.btnBetala.Click += new System.EventHandler(this.btnBetala_Click);
             // 
-            // lblTime
+            // lblHusvagn
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(510, 135);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(35, 13);
-            this.lblTime.TabIndex = 5;
-            this.lblTime.Text = "label3";
+            this.lblHusvagn.AutoSize = true;
+            this.lblHusvagn.Location = new System.Drawing.Point(595, 53);
+            this.lblHusvagn.Name = "lblHusvagn";
+            this.lblHusvagn.Size = new System.Drawing.Size(90, 13);
+            this.lblHusvagn.TabIndex = 5;
+            this.lblHusvagn.Text = "1 Natt i Husvagn:";
             // 
-            // lblPengar
+            // lblKWH
             // 
-            this.lblPengar.AutoSize = true;
-            this.lblPengar.Location = new System.Drawing.Point(510, 161);
-            this.lblPengar.Name = "lblPengar";
-            this.lblPengar.Size = new System.Drawing.Size(35, 13);
-            this.lblPengar.TabIndex = 6;
-            this.lblPengar.Text = "label4";
+            this.lblKWH.AutoSize = true;
+            this.lblKWH.Location = new System.Drawing.Point(642, 82);
+            this.lblKWH.Name = "lblKWH";
+            this.lblKWH.Size = new System.Drawing.Size(40, 13);
+            this.lblKWH.TabIndex = 6;
+            this.lblKWH.Text = "1 Kwh:";
+            // 
+            // btnPris
+            // 
+            this.btnPris.Location = new System.Drawing.Point(13, 285);
+            this.btnPris.Name = "btnPris";
+            this.btnPris.Size = new System.Drawing.Size(115, 23);
+            this.btnPris.TabIndex = 7;
+            this.btnPris.Text = "Pris för bokning";
+            this.btnPris.UseVisualStyleBackColor = true;
+            this.btnPris.Click += new System.EventHandler(this.btnPris_Click);
+            // 
+            // tbxPris
+            // 
+            this.tbxPris.Location = new System.Drawing.Point(135, 287);
+            this.tbxPris.Name = "tbxPris";
+            this.tbxPris.Size = new System.Drawing.Size(100, 20);
+            this.tbxPris.TabIndex = 8;
+            // 
+            // tbxStugpris
+            // 
+            this.tbxStugpris.Location = new System.Drawing.Point(688, 27);
+            this.tbxStugpris.Name = "tbxStugpris";
+            this.tbxStugpris.Size = new System.Drawing.Size(100, 20);
+            this.tbxStugpris.TabIndex = 9;
+            // 
+            // tbxHusvagnPris
+            // 
+            this.tbxHusvagnPris.Location = new System.Drawing.Point(688, 53);
+            this.tbxHusvagnPris.Name = "tbxHusvagnPris";
+            this.tbxHusvagnPris.Size = new System.Drawing.Size(100, 20);
+            this.tbxHusvagnPris.TabIndex = 10;
+            // 
+            // tbxKWHpris
+            // 
+            this.tbxKWHpris.Location = new System.Drawing.Point(688, 79);
+            this.tbxKWHpris.Name = "tbxKWHpris";
+            this.tbxKWHpris.Size = new System.Drawing.Size(100, 20);
+            this.tbxKWHpris.TabIndex = 11;
+            // 
+            // lblStuga
+            // 
+            this.lblStuga.AutoSize = true;
+            this.lblStuga.Location = new System.Drawing.Point(609, 30);
+            this.lblStuga.Name = "lblStuga";
+            this.lblStuga.Size = new System.Drawing.Size(73, 13);
+            this.lblStuga.TabIndex = 12;
+            this.lblStuga.Text = "1 Natt i stuga:";
+            // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(688, 114);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(100, 23);
+            this.btnApply.TabIndex = 13;
+            this.btnApply.Text = "Apply Changes";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // Ekonomi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 409);
-            this.Controls.Add(this.lblPengar);
-            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.btnApply);
+            this.Controls.Add(this.lblStuga);
+            this.Controls.Add(this.tbxKWHpris);
+            this.Controls.Add(this.tbxHusvagnPris);
+            this.Controls.Add(this.tbxStugpris);
+            this.Controls.Add(this.tbxPris);
+            this.Controls.Add(this.btnPris);
+            this.Controls.Add(this.lblKWH);
+            this.Controls.Add(this.lblHusvagn);
             this.Controls.Add(this.btnBetala);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -127,7 +198,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnBetala;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.Label lblPengar;
+        private System.Windows.Forms.Label lblHusvagn;
+        private System.Windows.Forms.Label lblKWH;
+        private System.Windows.Forms.Button btnPris;
+        private System.Windows.Forms.TextBox tbxPris;
+        private System.Windows.Forms.TextBox tbxStugpris;
+        private System.Windows.Forms.TextBox tbxHusvagnPris;
+        private System.Windows.Forms.TextBox tbxKWHpris;
+        private System.Windows.Forms.Label lblStuga;
+        private System.Windows.Forms.Button btnApply;
     }
 }
