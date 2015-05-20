@@ -59,6 +59,16 @@ namespace JCampingFix.View
             //tbxStugpris.Text = priceList.Get(2).ToString();
             //tbxKWHpris.Text = priceList.Get(3).ToString();
 
+            try
+            {
+                priceList = ServiceProvider.GetPriceService();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            } 
+
             initListView();
         }
 
@@ -163,6 +173,21 @@ namespace JCampingFix.View
             priceList.Get(1).TrailerPrice = Convert.ToInt32(tbxHusvagnPris.Text);
             priceList.Get(1).CabinPrice = Convert.ToInt32(tbxStugpris.Text);
             priceList.Get(1).KwhPrice = Convert.ToInt32(tbxKWHpris.Text);
+        }
+
+        private void brnaddPrices_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                priceList.Add(new Prices(Convert.ToInt32(tbxStugpris.Text), Convert.ToInt32(tbxHusvagnPris.Text), Convert.ToInt32(tbxKWHpris.Text)));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            tbxPrisLista.Text = "1 Natt i Stuga:        " + priceList.Get(0).CabinPrice + Environment.NewLine +
+                                "1 Natt i Husvagn:   " + priceList.Get(0).TrailerPrice + Environment.NewLine +
+                                "1 kWh:                   " + priceList.Get(0).KwhPrice;
         }
 
     }

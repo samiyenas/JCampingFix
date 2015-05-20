@@ -31,7 +31,7 @@
             this.lvwBokningar = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxPrisLista = new System.Windows.Forms.TextBox();
             this.btnBetala = new System.Windows.Forms.Button();
             this.lblHusvagn = new System.Windows.Forms.Label();
             this.lblKWH = new System.Windows.Forms.Label();
@@ -42,6 +42,7 @@
             this.tbxKWHpris = new System.Windows.Forms.TextBox();
             this.lblStuga = new System.Windows.Forms.Label();
             this.btnApply = new System.Windows.Forms.Button();
+            this.brnaddPrices = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvwBokningar
@@ -71,14 +72,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Prislista";
             // 
-            // textBox1
+            // tbxPrisLista
             // 
-            this.textBox1.Location = new System.Drawing.Point(580, 158);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 85);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "1 natt i stuga: 10 kr\r\n\r\n1 natt i husvagn: 4 kr\r\n\r\n1kwh : 5 kr\r\n";
+            this.tbxPrisLista.Enabled = false;
+            this.tbxPrisLista.Location = new System.Drawing.Point(580, 158);
+            this.tbxPrisLista.Multiline = true;
+            this.tbxPrisLista.Name = "tbxPrisLista";
+            this.tbxPrisLista.Size = new System.Drawing.Size(177, 85);
+            this.tbxPrisLista.TabIndex = 3;
+            this.tbxPrisLista.Text = "1 natt i stuga: 10 kr\r\n\r\n1 natt i husvagn: 4 kr\r\n\r\n1kwh : 5 kr\r\n";
             // 
             // btnBetala
             // 
@@ -165,11 +167,22 @@
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
+            // brnaddPrices
+            // 
+            this.brnaddPrices.Location = new System.Drawing.Point(812, 114);
+            this.brnaddPrices.Name = "brnaddPrices";
+            this.brnaddPrices.Size = new System.Drawing.Size(75, 23);
+            this.brnaddPrices.TabIndex = 14;
+            this.brnaddPrices.Text = "button1";
+            this.brnaddPrices.UseVisualStyleBackColor = true;
+            this.brnaddPrices.Click += new System.EventHandler(this.brnaddPrices_Click);
+            // 
             // Ekonomi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 409);
+            this.Controls.Add(this.brnaddPrices);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.lblStuga);
             this.Controls.Add(this.tbxKWHpris);
@@ -180,7 +193,7 @@
             this.Controls.Add(this.lblKWH);
             this.Controls.Add(this.lblHusvagn);
             this.Controls.Add(this.btnBetala);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxPrisLista);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lvwBokningar);
@@ -196,7 +209,7 @@
         private System.Windows.Forms.ListView lvwBokningar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxPrisLista;
         private System.Windows.Forms.Button btnBetala;
         private System.Windows.Forms.Label lblHusvagn;
         private System.Windows.Forms.Label lblKWH;
@@ -207,5 +220,6 @@
         private System.Windows.Forms.TextBox tbxKWHpris;
         private System.Windows.Forms.Label lblStuga;
         private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Button brnaddPrices;
     }
 }

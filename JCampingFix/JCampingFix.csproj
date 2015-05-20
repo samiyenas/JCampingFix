@@ -110,6 +110,7 @@
     <None Include="bin\Debug\BookingLista.DAT" />
     <None Include="bin\Debug\CabinLista.DAT" />
     <None Include="bin\Debug\MemberLista.DAT" />
+    <None Include="bin\Debug\PriceLista.DAT" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

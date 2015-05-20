@@ -135,6 +135,10 @@ namespace JCampingFix.View
                     ServiceProvider.GetCustomerService().BinarySerialize();
                     ServiceProvider.GetPriceService().BinarySerialize();
                 }
+                else
+                {
+                    ServiceProvider.GetPriceService().BinarySerialize();
+                }
 
             }
             catch (Exception)

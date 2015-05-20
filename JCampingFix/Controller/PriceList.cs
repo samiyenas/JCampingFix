@@ -22,6 +22,10 @@ namespace JCampingFix.Controller
                 {
                     prices = BinarySerialization<List<Prices>>.BinaryDeSerialize("PriceLista.DAT");
                 }
+                else
+                {
+                    this.BinarySerialize();
+                }
             }
             catch (Exception)
             {
